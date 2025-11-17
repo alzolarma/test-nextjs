@@ -1,6 +1,8 @@
-export let memoryPosts: any[] = [];
+import { Post } from "../lib/types/post";
 
-export function addMemoryPost(post: any) {
+export const memoryPosts: Post[] = [];
+
+export function addMemoryPost(post: Post) {
   memoryPosts.unshift(post);
 }
 

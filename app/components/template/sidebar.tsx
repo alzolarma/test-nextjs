@@ -2,7 +2,6 @@
 
 import Sidebar from '@/app/components/organism/Sidebar';
 import { Bars3BottomLeftIcon } from '@heroicons/react/16/solid';
-import { CpuChipIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
 const SidebarTemplate = ({ children }: { children: React.ReactNode }) => {

@@ -8,6 +8,7 @@ import { StatusMessage } from "@/app/lib/types/validations";
 import { Messages } from "../molecules/Messages";
 import { Post } from "@/app/lib/types/post";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function PostsTemplate({ posts }: { posts: any[] }) {
     const [postsData, setPostsData] = useState<Post[]>(posts);
     const [postIdToDelete, setPostIdToDelete] = useState<number | null>(null);

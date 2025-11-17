@@ -1,6 +1,7 @@
 import { XCircleIcon } from "@heroicons/react/16/solid";
 import SidebarMenu from "../molecules/sidebarMenu";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -11,17 +12,11 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const [currentPath, setCurrentPath] = useState('');
   const baseClasses = "fixed inset-y-0 left-0 transform bg-white border-r border-gray-200 w-64 space-y-6 pt-6 z-40 transition-transform duration-300 ease-in-out lg:translate-x-0";
   const mobileClasses = isOpen ? "translate-x-0" : "-translate-x-full";
-
+  const pathname = usePathname()
+  
   useEffect(() => {
-    const updatePath = () => {
-        setCurrentPath(window.location.pathname);
-    };
-    updatePath();
-    window.addEventListener('popstate', updatePath);
-    return () => {
-        window.removeEventListener('popstate', updatePath);
-    };
-  }, []);
+    setCurrentPath(pathname);
+  }, [pathname]);
   
   return (
       <>
@@ -36,7 +31,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               
               <div className="flex items-center justify-between px-4">
                   <h1 className="text-2xl font-extrabold text-indigo-700 tracking-wider">
-                     Test ePayco
+                     Test ePayco 
                   </h1>
                   <button 
                       onClick={onClose} 

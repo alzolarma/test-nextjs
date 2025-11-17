@@ -1,6 +1,7 @@
 import { PostCard } from "@/app/components/organism/PostCard";
 import { getPost } from "@/app/lib/services/posts.service";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function EditPostPage({ params }: any) {
   const { id } = await params;
   const post = await getPost(id);

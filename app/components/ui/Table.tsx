@@ -2,7 +2,7 @@ interface ColumnDefinition {
   key: string;
   headerName: string;
 }
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface TableProps {
   columns: ColumnDefinition[];
   data: Record<string, any>[];

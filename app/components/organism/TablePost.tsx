@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Paginator } from "../molecules/Paginator";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface TablePostsProps {
   data: any[];
 }
@@ -35,7 +36,7 @@ export function TablePosts({ data }: TablePostsProps) {
               <th className="w-6 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">
                 ID
               </th>
-              <th className="w-1/2 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">
+              <th className="w-2/3 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">
                 Título
               </th>
               <th className="w-40 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">

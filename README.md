@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ePayco Test Frontend
 
-## Getting Started
+Este proyecto es una **prueba de frontend** usando **Next.js 16**, **React 19**, **TypeScript 5** y **TailwindCSS 4**.  
+Está estructurado siguiendo **Atomic Design** y hace uso de **SSR** y **API fake en memoria** para simular la creación de posts.  
+> Nota: solo la creación de posts se almacena en memoria para mostrar el listado actualizado.
 
-First, run the development server:
+---
+
+## Tecnologías y dependencias
+
+| Tecnología | Versión | Descripción |
+|------------|---------|------------|
+| Next.js | 16.0.3 | Framework React con App Router, SSR y SSG |
+| React | 19.2.0 | Librería de UI para componentes cliente y servidor |
+| TypeScript | 5 | Tipado estático y seguridad en los datos |
+| TailwindCSS | 4 | Framework CSS utilitario para diseño responsivo |
+| Zod | 4.1.12 | Validación de esquemas y formularios |
+| @heroicons/react | 2.2.0 | Iconos SVG para UI (sidebar, botones, acciones) |
+| ESLint | 9 | Linter y buenas prácticas de código |
+
+---
+
+## Requisitos previos
+
+- Node.js >= 20
+- npm, yarn, o pnpm
+
+---
+
+## Instalación
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <git@github.com:alzolarma/test-nextjs.git>
+cd test-nextjs
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
+```bash
+npm run dev      # Inicia el servidor de desarrollo
+npm run build    # Compila el proyecto
+npm run start    # Inicia el servidor de producción
+npm run lint     # Corre el linter
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Rutas
+| Ruta                           | Funcionalidad    | Fuente de datos                           | Limitaciones                                   |
+| ------------------------------ | ---------------- | ----------------------------------------- | ---------------------------------------------- |
+| `/dashboard/posts`             | Listado de posts | Mezcla de JSONPlaceholder + memoria local | Los posts locales y remotos se muestran juntos |
+| `/dashboard/posts/create`      | Crear post       | Memoria local                             | Solo existe durante la sesión del servidor     |
+| `/dashboard/posts/[id]/edit`   | Editar post      | JSONPlaceholder                           | Solo posts reales, no locales                  |
+| `/dashboard/posts/[id]`        | Ver detalle      | JSONPlaceholder                           | Los posts locales no se muestran               |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Estructura de carpetas
+```
+app/
+├─ components/
+│  ├─ atoms/       # Inputs, botones, items
+│  ├─ molecules/   # Formularios, Paginador, Menú lateral, Mensajes
+│  ├─ organisms/   # TablePosts, Sidebar, Formularios completos, PostCard, Modal
+│  └─ templates/   # Plantillas de Post, Sidebar
+├─ api/            # API - fakedatabase (memoria)
+|  ├─ fake-db.ts   # Base de datos en memoria para posts
+├─ lib/
+│  ├─ services/    # API real + API fake
+│  ├─ schemas/     # Validaciones con Zod
+│  └─ types/       # Interfaces de post y validaciones
+├─ dashboard/
+│  ├─ posts/       # Listado, creación, edición, detalle
+│  └─ layout.tsx   # Layout SSR para dashboard
+└─ app/page.tsx    # Página principal
+```

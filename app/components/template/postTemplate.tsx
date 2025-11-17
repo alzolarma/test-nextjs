@@ -45,10 +45,10 @@ export default function PostsTemplate({ posts }: { posts: any[] }) {
 
     return (
         <section className="space-y-6">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
                 <h1 className="text-3xl font-bold text-gray-900">Gestión de Posts</h1>
 
-                <Link className= "px-4 py-2 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700" href={`/dashboard/posts/create`}  >
+                <Link className= "w-full sm:w-auto text-center px-4 py-2 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700" href={`/dashboard/posts/create`}  >
                     Crear Post
                 </Link>
             </div>

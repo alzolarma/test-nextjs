@@ -1,6 +1,5 @@
-import { ClipboardIcon, UsersIcon } from "@heroicons/react/16/solid";
+import { ClipboardIcon } from "@heroicons/react/16/solid";
 import SidebarItem from "../atoms/SidebarItem";
-import { InboxIcon } from "@heroicons/react/24/outline";
 
 interface SidebarMenuProps {
   currentPath?: string;
@@ -9,8 +8,8 @@ interface SidebarMenuProps {
 const SidebarMenu = ({ currentPath  }: SidebarMenuProps) => {
   const menuItems = [
       { label: 'Posts', href: '/dashboard/posts', Icon: ClipboardIcon },
-      { label: 'Comentarios', href: '/dashboard/comments', Icon: InboxIcon },
-      { label: 'Usuarios', href: '/dashboard/users', Icon: UsersIcon },
+    //   { label: 'Comentarios', href: '/dashboard/comments', Icon: InboxIcon },
+    //   { label: 'Usuarios', href: '/dashboard/users', Icon: UsersIcon },
   ];
 
   return (
@@ -21,8 +20,8 @@ const SidebarMenu = ({ currentPath  }: SidebarMenuProps) => {
                   label={item.label}
                   Icon={item.Icon}
                   href={item.href}
-                  isActive={currentPath === item.href}
-              />
+                  isActive={!!currentPath?.startsWith(item.href)}
+            />
           ))}
       </nav>
   );

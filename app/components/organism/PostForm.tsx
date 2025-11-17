@@ -107,7 +107,7 @@ const handleGoBack = () => {
   return (
     <form
       onSubmit={handleSubmit} 
-      className="space-y-6 w-full">
+      className="space-y-6 w-full p-4">
       
       <h2 className="text-xl font-semibold text-gray-800 mb-4">{formTitle}</h2>
       {statusMessage && (

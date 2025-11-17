@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Paginator } from "../molecules/Paginator";
+import { Paginator } from "../molecules/paginator";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface TablePostsProps {

@@ -55,7 +55,6 @@ const handleSubmit = async (e: React.FormEvent) => {
   setValidationErrors({});
   try {
       const validation = postSchema.safeParse(data);
-      console.log("Validation result:", validation);
       if (!validation.success) {
         const fieldErrors = validation.error.flatten().fieldErrors;
   
